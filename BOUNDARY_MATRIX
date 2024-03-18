@@ -1,0 +1,44 @@
+//Java Program to Print Boundary Elements of the Matrix
+import java.util.Scanner;
+
+public class MainArr {
+    public static void main(String[] args) {
+        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+        // to see how IntelliJ IDEA suggests fixing it.
+        System.out.println("ENTER ROW AND COLUMN SIZE");
+        Scanner sc= new Scanner(System.in);
+        int x=sc.nextInt();
+        int y=sc.nextInt();
+        System.out.println("ENTER MATRIX ELEMENTS");
+        int[][] arr= new int[x][y];
+
+        for (int i = 0; i <x; i++) {
+            for(int j=0;j<y;j++){
+                arr[i][j]= sc.nextInt();
+            }
+        }
+        BoundaryArr b= new BoundaryArr();
+        b.boundary(arr,x,y);
+        }
+}
+////////////child class
+public class BoundaryArr {
+    void  boundary(int[][] arr, int r, int c)
+    {
+        for(int i=0; i< r;i++)
+        {
+            for(int j=0; j<c;j++)
+            {
+                if(i==0 || i==r-1 || j==0 || j==c-1)
+                {
+                    System.out.print((arr[i][j]+" "));
+                }
+                else{
+                    System.out.print("  ");
+                }
+            }
+            System.out.println("");
+        }
+
+    }
+}
