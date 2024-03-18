@@ -1,0 +1,38 @@
+import java.util.Scanner;
+public class ArrayOccuranceEleminate {
+        public static void main(String[] args) {
+            //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+            // to see how IntelliJ IDEA suggests fixing it.
+            System.out.println("ENTER LENGTH OF ARR!");
+            Scanner sc = new Scanner(System.in);
+            int x = sc.nextInt();
+            int[] arr = new int[x];
+            System.out.println("ENTER ARRAY ELEMENTS");
+            for (int i = 0; i < x; i++) {
+                arr[i] = sc.nextInt();
+            }
+            System.out.println("ENTER OCCURANCE ELEMENTS");
+            int p= sc.nextInt();
+            Occurance r=new Occurance();
+            r.occur(arr,p);
+
+        }
+    }
+
+///////////////child class 
+public class Occurance {
+    void occur(int[] arr , int key){
+        int j=0;
+        int[] temp =new int[arr.length];
+        for(int i=0; i<arr.length; i++)
+        {
+            if(arr[i]!=key) {
+                temp[j++] = arr[i];
+            }
+        }
+        for (int l=0; l<j;l++)
+        {
+            System.out.print(temp[l]+" ");
+        }
+    }
+}
