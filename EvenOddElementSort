@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class OddEvenSortMain {
+    public static void main(String[] args) {
+        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+        // to see how IntelliJ IDEA suggests fixing it.
+        System.out.println("ENTER LENGTH OF  ARRAY");
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int[] arr1 = new int[x];
+        System.out.println("ENTER  ARRAY ELEMENTS");
+        for (int i = 0; i < x; i++) {
+            arr1[i] = sc.nextInt();
+        }
+        EvenOddCheck r = new EvenOddCheck();
+        r.evenodd(arr1);
+    }
+}
+
+///////////////////////////////////////child class-------------------------------------------------------------------------------------
+public class EvenOddCheck {
+    void evenodd(int[] arr){
+        int n= arr.length;
+        int left=0;
+        int right=n-1;
+        while(left<right)
+        {
+            if(arr[left]%2==1 || arr[right]%2==0)
+            {
+               int temp=arr[left];
+                arr[left]=arr[right];
+                arr[right]=temp;
+            }
+            if(arr[left]%2==0)
+                left++;
+
+            if(arr[right]%2==1)
+                right--;
+        }
+        for(int i=0; i<n;i++)
+        {
+            System.out.print(arr[i]+" ");
+        }
+    }
+}
