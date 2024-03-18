@@ -1,0 +1,42 @@
+////////Remove duplicates from Sorted Array
+
+import java.util.Scanner;
+
+public class DuplicateMain {
+    public static void main(String[] args) {
+        System.out.println("ENTER LENGTH OF ARR!");
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int[] arr = new int[x];
+        System.out.println("ENTER ARRAY ELEMENTS");
+        for (int i = 0; i < x; i++) {
+            arr[i] = sc.nextInt();
+        }
+        RemoveDuplicate r=new RemoveDuplicate();
+        r.duplicateRemove(arr,x);
+        int z= r.duplicateRemove(arr,x);
+        for(int i=0 ;i< z; i++)
+        {
+            System.out.println(arr[i]+" ");
+        }
+    }
+}
+
+//////////////////////////////////////////////////child class ////////////////////////////////////////////////////////
+public class RemoveDuplicate {
+    int duplicateRemove(int[] arr, int n)
+    {
+        int j=0;
+        int[] temp=new int[10];
+        if(n==0 ||  n==1) {
+            return n;
+        }
+        for(int i=0; i<n-1;i++)
+            if(arr[i]!=arr[i+1])
+                temp[j++]=arr[i];
+
+        arr[j++]=arr[n-1];
+
+        return j;
+    }
+}
