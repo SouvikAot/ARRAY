@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class SqareElementMain {
+        public static void main(String[] args) {
+            //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+            // to see how IntelliJ IDEA suggests fixing it.
+            System.out.println("ENTER LENGTH OF  ARRAY");
+            Scanner sc = new Scanner(System.in);
+            int x = sc.nextInt();
+            int[] arr1 = new int[x];
+            System.out.println("ENTER  ARRAY ELEMENTS");
+            for (int i = 0; i < x; i++) {
+                arr1[i] = sc.nextInt();
+            }
+           Sqare_And_Sort s=new Sqare_And_Sort();
+            s.squre(arr1);
+        }
+    }
+
+
+////////////////////////////////child///////////////////////////
+import java.util.Arrays;
+
+public class Sqare_And_Sort {
+    void squre(int[] arr){
+        int n= arr.length;
+        int j=0;
+        int[] temp=new int[n];
+        for(int i=0; i<n;i++)
+        {
+            temp[j++]=arr[i]*arr[i];
+        }
+        Arrays.sort(temp);
+        for(int i=0;i<n;i++)
+        {
+            System.out.print(temp[i]+" ");
+        }
+    }
+}
