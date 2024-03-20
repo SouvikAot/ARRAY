@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class TransposeMatrix {
+    static  int[][] rotate(int[][] arr,int x,int y)
+    {
+        arr= transpose(arr,x,y);
+        for(int i=0;i<x;i++)
+        {
+            reverse(arr[i]);
+        }
+        return arr;
+    }
+    static  int[] reverse(int[] arr)
+    {
+        int x=0, y= arr.length-1;
+       while(x<y)
+       {
+           int temp=arr[x];
+           arr[x]=arr[y];
+           arr[y]=temp;
+           x++;
+           y--;
+       }
+       return  arr;
+    }
+
+   static int[][] transpose(int[][] arr,int row, int col)
+    {
+        int[][] Arr=new int[row][col];
+        for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++){
+                Arr[i][j]=arr[j][i];
+            }
+        }
+        return Arr;
+    }
+    public static void main(String[] args) {
+        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+        // to see how IntelliJ IDEA suggests fixing it.
+        System.out.printf("ENTER ROW AND COLUMN");
+        Scanner sc=new Scanner(System.in);
+        int row=sc.nextInt();
+        int col= sc.nextInt();
+        int[][] arr=new int[row][col];
+       // int[][] final = new int[row][col];
+        System.out.println("ENTER ARRAY ELEMENTS");
+        for (int i = 0; i < row; i++) {
+            for (int j=0;j<col;j++){
+             arr[i][j]=sc.nextInt();
+            }
+        }
+
+       int[][] z= rotate(arr,row,col);
+        System.out.println("TRANSPOSE ARRAY");
+        for (int i = 0; i < row; i++) {
+            for (int j=0;j<col;j++){
+                System.out.print(z[i][j]+" ");
+            }
+            System.out.println();
+        }
+        //TransposeMatrix m=new TransposeMatrix();
+
+
+    }
+}
